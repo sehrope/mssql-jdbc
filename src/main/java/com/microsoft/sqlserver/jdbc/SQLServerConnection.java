@@ -272,6 +272,9 @@ public class SQLServerConnection implements ISQLServerConnection
 		return getSendTimeAsDatetime() ? TDS.BASE_YEAR_1970 : TDS.BASE_YEAR_1900;
 	}
 
+	private boolean sqlVariantAsNull;
+	final boolean sqlVariantAsNull() { return sqlVariantAsNull; }
+
 	private byte requestedEncryptionLevel = TDS.ENCRYPT_INVALID;
 	final byte getRequestedEncryptionLevel()
 	{
@@ -1154,6 +1157,15 @@ public class SQLServerConnection implements ISQLServerConnection
 				activeConnectionProperties.setProperty(sPropKey, sPropValue);
 			}
 			multiSubnetFailover = booleanPropertyOn(sPropKey,sPropValue);
+
+			sPropKey = SQLServerDriverBooleanProperty.SQL_VARIANT_AS_NULL.toString();
+			sPropValue = activeConnectionProperties.getProperty(sPropKey);
+			if (sPropValue == null)
+			{
+				sPropValue = Boolean.toString(SQLServerDriverBooleanProperty.SQL_VARIANT_AS_NULL.getDefaultValue());
+				activeConnectionProperties.setProperty(sPropKey, sPropValue);
+			}
+			sqlVariantAsNull = booleanPropertyOn(sPropKey,sPropValue);
 
 			sPropKey = SQLServerDriverBooleanProperty.TRANSPARENT_NETWORK_IP_RESOLUTION.toString();
 			sPropValue = activeConnectionProperties.getProperty(sPropKey);

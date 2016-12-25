@@ -345,6 +345,20 @@ enum SSType
                 JDBCType.Category.LONG_BINARY,
                 JDBCType.Category.CHARACTER)),
 
+        SQL_VARIANT (
+            SSType.Category.VARIANT,
+            EnumSet.of(
+                JDBCType.Category.CHARACTER,
+                JDBCType.Category.LONG_CHARACTER,
+                JDBCType.Category.CLOB,
+                JDBCType.Category.NCHARACTER,
+                JDBCType.Category.LONG_NCHARACTER,
+                JDBCType.Category.NCLOB,
+                JDBCType.Category.BINARY,
+                JDBCType.Category.LONG_BINARY,
+                JDBCType.Category.BLOB,
+                JDBCType.Category.SQLXML)),
+
         XML (
             SSType.Category.XML,
             EnumSet.of(

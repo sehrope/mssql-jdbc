@@ -164,6 +164,7 @@ public final class SQLServerResource extends ListResourceBundle
 				{"R_failedToInitializeXA", "Failed to initialize the stored procedure xp_sqljdbc_xa_init. The status is: {0}. Error: \"{1}\""},
 				{"R_failedFunctionXA", "The function {0} failed. The status is: {1}. Error: \"{2}\""},
 				{"R_noTransactionCookie", "The function {0} failed. No transaction cookie was returned."},
+				{"R_sqlVariantAsNullPropertyDescription", "Boolean property to enable interpreting all sql_variant column values as null."},
 				{"R_failedToEnlist", "Failed to enlist. Error: \"{0}\""},
 				{"R_failedToUnEnlist", "Failed to unenlist. Error: \"{0}\""},
 				{"R_failedToReadRecoveryXIDs", "Failed to read recovery XA branch transaction IDs (XIDs). Error: \"{0}\""},

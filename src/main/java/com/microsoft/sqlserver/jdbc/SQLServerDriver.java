@@ -311,6 +311,7 @@ enum SQLServerDriverBooleanProperty
 	SERVER_NAME_AS_ACE("serverNameAsACE",				 				false),
 	SEND_STRING_PARAMETERS_AS_UNICODE("sendStringParametersAsUnicode",	true),
 	SEND_TIME_AS_DATETIME("sendTimeAsDatetime", 						true),
+	SQL_VARIANT_AS_NULL("sqlVariantAsNull", 							false),
 	TRANSPARENT_NETWORK_IP_RESOLUTION("TransparentNetworkIPResolution",	true),
 	TRUST_SERVER_CERTIFICATE("trustServerCertificate",					false),
 	XOPEN_STATES("xopenStates", 										false);
@@ -372,6 +373,7 @@ public final class SQLServerDriver implements java.sql.Driver
         new SQLServerDriverPropertyInfo(SQLServerDriverBooleanProperty.SERVER_NAME_AS_ACE.toString(), 					Boolean.toString(SQLServerDriverBooleanProperty.SERVER_NAME_AS_ACE.getDefaultValue()),  				false,      TRUE_FALSE),
         new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.SERVER_NAME.toString(),                    		SQLServerDriverStringProperty.SERVER_NAME.getDefaultValue(),           									false,      null),
         new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.SERVER_SPN.toString(),                    		SQLServerDriverStringProperty.SERVER_SPN.getDefaultValue(),           									false,      null),
+        new SQLServerDriverPropertyInfo(SQLServerDriverBooleanProperty.SQL_VARIANT_AS_NULL.toString(),        			Boolean.toString(SQLServerDriverBooleanProperty.SQL_VARIANT_AS_NULL.getDefaultValue()),      			false,      TRUE_FALSE),
         new SQLServerDriverPropertyInfo(SQLServerDriverBooleanProperty.TRANSPARENT_NETWORK_IP_RESOLUTION.toString(),    Boolean.toString(SQLServerDriverBooleanProperty.TRANSPARENT_NETWORK_IP_RESOLUTION.getDefaultValue()),   false,      TRUE_FALSE),
         new SQLServerDriverPropertyInfo(SQLServerDriverBooleanProperty.TRUST_SERVER_CERTIFICATE.toString(),        		Boolean.toString(SQLServerDriverBooleanProperty.TRUST_SERVER_CERTIFICATE.getDefaultValue()),      		false,      TRUE_FALSE),
         new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.TRUST_STORE.toString(),                    		SQLServerDriverStringProperty.TRUST_STORE.getDefaultValue(),           									false,      null),

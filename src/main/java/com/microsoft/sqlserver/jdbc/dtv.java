@@ -3265,6 +3265,18 @@ final class TypeInfo
 			 */
 			public void apply(TypeInfo typeInfo, TDSReader tdsReader) throws SQLServerException
 			{
+				if (tdsReader.getConnection().sqlVariantAsNull()) {
+					typeInfo.ssLenType = SSLenType.LONGLENTYPE;
+					typeInfo.maxLength = tdsReader.readInt();
+					// We check for <=0 (rather than <0) as NULL sql_variant values are not allowed
+					if(typeInfo.maxLength <= 0) {
+						tdsReader.throwInvalidTDS();
+					}
+					typeInfo.ssType = SSType.SQL_VARIANT;
+					typeInfo.displaySize = typeInfo.precision = Integer.MAX_VALUE;
+					return;
+				}
+
 				// Throw an exception and terminate the connection.  Since we don't know
 				// how to process or skip the VARIANT type in the TDS token stream, we are
 				// unable to continue processing the response.
